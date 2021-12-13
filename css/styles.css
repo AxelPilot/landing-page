@@ -31,7 +31,7 @@ h1 {
     margin: 2em 1rem;
 }
 
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 60em){
     h1 {
         font-size: 7em;
         margin: 2em 4rem 1em;
@@ -147,7 +147,7 @@ a.your-active-class {
     text-align: left;
 }
 
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 60em){
     .landing__container {
         max-width: 50em;
         padding: 4em;
