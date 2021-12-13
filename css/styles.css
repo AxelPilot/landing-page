@@ -82,9 +82,16 @@ section {
 .navbar__menu .menu__link {
     display: block;
     padding: 1em;
+    font-size: 0.8rem;
     font-weight: bold;
     text-decoration: none;
     color: #000;
+}
+
+@media only screen and (min-width: 23em) {
+    .navbar__menu .menu__link {
+        font-size: 1rem;
+    }
 }
 
 .navbar__menu .menu__link:hover {
