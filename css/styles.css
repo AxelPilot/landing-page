@@ -118,7 +118,7 @@ a.your-active-class {
     color: #fff;
 }
 
-/* Styles for the "Go-to-top" button in the lower right hand corner of the window */
+/* Styles for the Go-To-Top button in the lower right hand corner of the window */
 .gototop {
     position: fixed;
     display: none;
@@ -129,9 +129,9 @@ a.your-active-class {
     background: rgb(255, 255, 255);
     opacity: 0.5;
     transition: opacity 0.3s;
-    bottom:40px;
-    right:20px;
-    z-index:10000;
+    bottom: 40px;
+    right: 20px;
+    z-index: 10000;
     font-size: 2rem;
 }
 

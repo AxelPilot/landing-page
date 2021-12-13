@@ -15,11 +15,6 @@
  */
 
 /**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
- */
-
-/**
  * Define Global Variables
  * 
  */
@@ -30,17 +25,9 @@ const sections = document.querySelectorAll('section');
 let ActiveIndex = 0;
 
 const goToTopButton = document.getElementById('gototop');
-let goToTopButtonIsVisible = false;
 
 /**
  * End Global Variables
- * Start Helper Functions
- * 
- */
-
-
-/**
- * End Helper Functions
  * Begin Main Functions
  * 
  */
@@ -48,20 +35,12 @@ let goToTopButtonIsVisible = false;
 /**
  * Set CSS class active state when the section element is in the viewport.
  * 
- * Loops through sections to find out which section is currently visible in the viewport.
- * Retrieves section's dimensions and position relative to the viewport.
- * Checks if section is visible in the viewport.
- * Adds class 'your-active-class' to the section currently visible in the viewport.
- * Removes class 'your-active-class' from the section previously visible in the viewport.
- * Adds class 'your-active-class' to the navigation menu item corresponding with the currently visible section.
- * Removes class 'your-active-class' from the navigation menu item corresponding with the previously active section.
- * Updates ActiveIndex to be equal to the index of the section currently visible in the viewport.
- * 
  */
 
-function setVisibleSectionActive() {
+function setVisibleSectionActive(sections, navItems) {
     // Loops through sections to find out which section is currently visible in the viewport.
     for (let i = 0; i < sections.length; i++) {
+        // Retrieves section's dimensions and position relative to the viewport.
         const rect = sections[i].getBoundingClientRect();
         
         // Checks if section is visible in the viewport.
@@ -86,7 +65,6 @@ function setVisibleSectionActive() {
     }
 }
 
-
 /**
  * End Main Functions
  * Begin Events
@@ -94,14 +72,13 @@ function setVisibleSectionActive() {
  */
 
 /**
- * Scroll smoothly to the top of the page when the Go To Top button 
+ * Scrolls smoothly to the top of the page when the Go-To-Top button 
  * in the lower right hand corner of the window is clicked.
  */
 
 goToTopButton.addEventListener('click', () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
 });
-
 
 /**
  * Builds the navigation menu.
@@ -127,12 +104,15 @@ sections.forEach((section) => {
 });
 document.getElementById('navbar__list').appendChild(fragment);
 
-
+/**
+ * End of navigation menu.
+ * 
+ */
 
 // Retrieves all anchor items in the navigation menu.
 const navItems = document.querySelectorAll('#navbar__list li a');
 
-// Initially, adds class 'your-active-class' to the first navigation menu item.
+// Adds class 'your-active-class' to the first navigation menu item on page load.
 if (!navItems[ActiveIndex].classList.contains(ACTIVE_CLASS_NAME)) {
     navItems[ActiveIndex].classList.add(ACTIVE_CLASS_NAME);
 }
@@ -142,10 +122,10 @@ document.addEventListener('scroll', () => {
      * Adds class 'your-active-class' to the section that is currently visible in the viewport,
      * and adds class 'your-active-class' to the corresponding navigation menu item.
      */
-    setTimeout(setVisibleSectionActive(), 0);
+    setTimeout(setVisibleSectionActive(sections, navItems), 0);
 
     /**
-     * Determines whether the Go To Top button shall be visible or not,
+     * Determines whether the Go-To-Top button shall be visible or not,
      * based on the window's currrent scroll position.
      */
     setTimeout(() => {
