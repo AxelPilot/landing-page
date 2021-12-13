@@ -81,8 +81,8 @@ section {
 
 .navbar__menu .menu__link {
     display: block;
-    padding: 1em;
-    font-size: 0.8rem;
+    padding: 0.8em;
+    font-size: 0.8em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
@@ -90,7 +90,8 @@ section {
 
 @media only screen and (min-width: 23em) {
     .navbar__menu .menu__link {
-        font-size: 1rem;
+        padding: 1em;
+        font-size: 1em;
     }
 }
 
