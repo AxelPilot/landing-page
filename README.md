@@ -14,4 +14,4 @@ Languages used are HTML, CSS and JavaScript.
 * When scrolling down from the top of the page, a button appears in the lower right hand corner of the window. Clicking this button scrolls automatically to the top of the page.
 
 ### Site link
-See the landing page [HERE](https://axelpilot.github.io/landing-page/)
+See the landing page [HERE](https://axelpilot.github.io/landing-page/).
