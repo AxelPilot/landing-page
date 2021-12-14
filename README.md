@@ -6,6 +6,8 @@ The aim of this project is to build a multi-section landing page, with a dynamic
 
 Languages used are HTML, CSS and JavaScript.
 
+Dependencies: None.
+
 ### Functionality
 * Navigational menu updates dynamically based on site contents.
 * Section and menu active states update dynamically based on scroll position.
