@@ -19,11 +19,6 @@ body {
 }
 
 
-/* Smooth scroll behavior */
-html {
-    scroll-behavior: smooth;
-}
-
 /* Typeography General */
 h1 {
     font-family: 'Fira Sans', sans-serif;
@@ -31,7 +26,7 @@ h1 {
     margin: 2em 1rem;
 }
 
-@media only screen and (min-width: 60em){
+@media only screen and (min-width: 35em){
     h1 {
         font-size: 7em;
         margin: 2em 4rem 1em;
@@ -155,7 +150,7 @@ a.your-active-class {
     text-align: left;
 }
 
-@media only screen and (min-width: 60em){
+@media only screen and (min-width: 35em){
     .landing__container {
         max-width: 50em;
         padding: 4em;
