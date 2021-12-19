@@ -8,6 +8,8 @@ Languages used are HTML, CSS and JavaScript.
 
 Dependencies: None.
 
+Starter Code in HTML and CSS for a static version of the Landing Page was provided by Udacity.
+
 ### Functionality
 * Navigational menu updates dynamically based on site contents.
 * Section and menu active states update dynamically based on scroll position.
