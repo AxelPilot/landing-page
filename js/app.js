@@ -44,7 +44,8 @@ const goToTopButton = document.getElementById('gototop');
 /**
  * Toggle between an upward and downward facing chevron.
  * 
- * @param {string} section_id Id of the section to be collapsed or uncollapsed.
+ * @param {string} section_id Id of the section to be collapsed
+ *                            or uncollapsed.
  * 
  */
 
@@ -81,7 +82,8 @@ function buildMenu(sections) {
         const section_id = section.getAttribute('id');
         const navItem = section.getAttribute('data-nav');
         const newElement = document.createElement('li');
-        newElement.innerHTML = `<a href="#${section_id}" class="menu__link">${navItem}</a>`;
+        newElement.innerHTML = 
+            `<a href="#${section_id}" class="menu__link">${navItem}</a>`;
         
         // Scroll to the corresponding section when a menu item is clicked.
         newElement.addEventListener('click', (evt) => {
@@ -94,7 +96,8 @@ function buildMenu(sections) {
 }
 
  /**
- * Collapse and uncollapse sections when the chevrons in the section headings are clicked.
+ * Collapse and uncollapse sections when the chevrons in the section
+ * headings are clicked.
  * 
  * @param {NodeList} sections A NodeList with all sections.
  */
@@ -104,9 +107,12 @@ function collapseSection(sections) {
         isCollapsed[index] = false;
         const section_id = section.getAttribute('id');
     
-        document.querySelector(`#${section_id} h2 .fas`).addEventListener('click', () => {
+        document.querySelector(`#${section_id} h2 .fas`).addEventListener(
+            'click', () => {
             toggleCollapseIcon(section_id);
-            document.querySelector(`#${section_id} .landing__container .collapsible__container`).style.display = isCollapsed[index] ? 'block' : 'none';
+            document.querySelector(
+                `#${section_id} .landing__container .collapsible__container`)
+                .style.display = isCollapsed[index] ? 'block' : 'none';
             isCollapsed[index] = isCollapsed[index] ? false : true;
         });
     });    
@@ -117,32 +123,38 @@ function collapseSection(sections) {
  * 
  * @param {NodeList} sections A NodeList with all sections.
  * @param {NodeList} navItems A NodeList with all menu items.
- * @param {number} fraction A value between 0 and 1 determining at which scroll position the active state should change.
+ * @param {number} fraction A value between 0 and 1 determining at which
+ *                          scroll position the active state should change.
  */
 
 function setVisibleSectionActive(sections, navItems, fraction) {
-    // Loop through sections to find out which section is currently visible in the viewport.
+    // Loop through sections to find out which section is currently visible
+    // in the viewport.
     for (let i = 0; i < sections.length; i++) {
         // Retrieve section's dimensions and position relative to the viewport.
         const rect = sections[i].getBoundingClientRect();
         
         // Check if section is visible in the viewport.
-        if (rect.top + rect.height > window.innerHeight * fraction && rect.top < window.innerHeight * fraction) {
+        if (rect.top + rect.height > window.innerHeight * fraction
+            && rect.top < window.innerHeight * fraction) {
 
-            // Add an active state to the section currently visible in the viewport,
-            // and remove the active state from the section previously visible in the viewport.
+            // Add an active state to the section currently visible
+            // in the viewport, and remove the active state from the
+            // section previously visible in the viewport.
             if (!sections[i].classList.contains(ACTIVE_CLASS_NAME)) {
                 sections[i].classList.add(ACTIVE_CLASS_NAME);
                 sections[ActiveIndex].classList.remove(ACTIVE_CLASS_NAME);
             }
-            // Add an active state to the navigation menu item corresponding with the 
-            // currently visible section, and remove the active state from the 
-            // navigation menu item corresponding with the previously active section.
+            // Add an active state to the navigation menu item corresponding
+            // with the currently visible section, and remove the active
+            // state from the navigation menu item corresponding with the
+            // previously active section.
             if (!navItems[i].classList.contains(ACTIVE_CLASS_NAME)) {
                 navItems[i].classList.add(ACTIVE_CLASS_NAME);
                 navItems[ActiveIndex].classList.remove(ACTIVE_CLASS_NAME);
             }
-            // Update ActiveIndex to be equal to the index of the section currently visible in the viewport.
+            // Update ActiveIndex to be equal to the index of the section
+            // currently visible in the viewport.
             ActiveIndex = i;
         }
     }
@@ -156,7 +168,8 @@ function setVisibleSectionActive(sections, navItems, fraction) {
  */
 
 function toggleGoToTopButton(offset) {
-    goToTopButton.style.display = document.documentElement.scrollTop > offset || document.body.scrollTop > offset ? 'block' : 'none';
+    goToTopButton.style.display = document.documentElement.scrollTop > offset 
+        || document.body.scrollTop > offset ? 'block' : 'none';
 }
 
 /**
@@ -172,7 +185,8 @@ function toggleGoToTopButton(offset) {
  buildMenu(sections);
 
  /**
- * Collapse and uncollapse sections when the chevrons in the section headings are clicked.
+ * Collapse and uncollapse sections when the chevrons in the section
+ * headings are clicked.
  * 
  */
 
@@ -197,8 +211,9 @@ if (!navItems[ActiveIndex].classList.contains(ACTIVE_CLASS_NAME)) {
 
 document.addEventListener('scroll', () => {
     /**
-     * Add an active state to the section that is currently visible in the viewport,
-     * and add an active state to the corresponding navigation menu item.
+     * Add an active state to the section that is currently visible
+     * in the viewport, and add an active state to the corresponding
+     * navigation menu item.
      */
     setTimeout(setVisibleSectionActive(sections, navItems, 1/4), 0);
 
