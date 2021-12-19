@@ -168,7 +168,7 @@ function setVisibleSectionActive(sections, navItems, fraction) {
  */
 
 function toggleGoToTopButton(offset) {
-    goToTopButton.style.display = document.documentElement.scrollTop > offset 
+    goToTopButton.style.display = document.documentElement.scrollTop > offset
         || document.body.scrollTop > offset ? 'block' : 'none';
 }
 
